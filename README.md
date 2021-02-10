@@ -1,7 +1,7 @@
 # Pearson-eBook-Downloader
 
 <p>
-This tool is meant to download the pages of any Pearson eBook as they are stored on Pearson's servers - as individual PNGs.<br>
+This tool downloads the pages of any Pearson eBook as they are stored on Pearson's servers - as individual PNGs.<br>
 
 This tool is meant to make it easier for people with slow internet, or who are fed up with Pearson's reader application.<br>
 Having eBooks in PDF form is valuable for many people, and this tool makes it easy to reach that.<br><br>
