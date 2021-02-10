@@ -1,0 +1,78 @@
+<!--
+Anthony Wilson - Convert a Pearson eBook to a PDF
+
+Protected by the GNU General Public License V3
+
+2021-2-3
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anthony Wilson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anthony Wilson">
+    <meta name="description" content="Table of Unicode chars">
+    
+    <style>
+      body {
+        /*background-color: #303030;
+        color: #e0e0e0;*/
+      }
+      
+      .smaller {
+        font-size: 0.8rem;
+      }
+      
+      .URLTextBox {
+        width: 80%;
+      }
+      
+      .smallerTextbox {
+        width: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How to combine your eBook pages into a PDF</h1>
+    
+    <h2>LibreOffice:</h2>
+    <p>
+      Once you have downloaded all pages of your eBook, you will be left with hundreds of PNG images.<br>
+      I would recommend moving these images into their own folder/directory to make the following process easier.
+      <ol type="1">
+        <li>Open LibreOffice, and create a new "Impress" presentation. You can press cancel to any extra dialogue on startup.</li>
+        <li>In the "Properties" panel (on the right-hand side of the screen by default), make sure the "Format" (or aspect
+        ratio) and Orientation are correct.<br>When inserted, the images will not change the shape of the slide, so getting
+        the aspect ratio right will make the quality of the final PDF much better.</li>
+        <li>Go to Insert > Media > Photo Album</li>
+        <li>Select "Add" in the popup window.</li>
+        <li>Navigate to the folder/directory containing your images, and select all of them.<br>
+        <b>Warning:</b> The images will not have a .png file extension when they are downloaded, so your file manager may not recognise them as images.
+        If this is the case, change the displayed file type from "All Images" to "All Files" (bottom-right in Linux).</li>
+        <li>Once you have selected/highlighted all the pages/images, select "Open".</li>
+        <li>Now that you have added the images as an album, select "Insert Slides" in the popup window.
+        This may take a very long time, depending on the speed of your computer. I'd recommend using Task Manager in Windows,
+        or any process manager/resource monitor of your choice (such as Htop in Linux) to monitor LibreOffice.</li>
+        <li>Once the process has completed, delete the first slide (which would have been created with the new presentation,
+        and will not have an image on it). This can be achieved by simply right-clicking on it in the left panel and selecting "Delete".<br>
+        Feel free to remove other pages/slides as you see fit.</li>
+        <li>Finally, to export the presentation as a PDF, go to "File" > "Export As" > "Export Directly As PDF"</li>
+        <li>Rename it to your desired name, choose a suitable save location, and select "Save".</li>
+        <li>You can now close LibreOffice without saving, as you now have the presentation in PDF form.</li>
+      </ol>
+    </p>
+    
+    <h2>Adobe Acrobat:</h2>
+    
+    <p>(Coming soon)</p>
+    
+    
+  </body>
+</html>
+
+

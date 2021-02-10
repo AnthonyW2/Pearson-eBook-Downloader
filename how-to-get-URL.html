@@ -1,0 +1,62 @@
+<!--
+Anthony Wilson - Convert a Pearson eBook to a PDF
+
+Protected by the GNU General Public License V3
+
+2021-2-3
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anthony Wilson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anthony Wilson">
+    <meta name="description" content="Table of Unicode chars">
+    
+    <style>
+      body {
+        /*background-color: #303030;
+        color: #e0e0e0;*/
+      }
+      
+      .smaller {
+        font-size: 0.8rem;
+      }
+      
+      .URLTextBox {
+        width: 80%;
+      }
+      
+      .smallerTextbox {
+        width: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Get the URL of you eBook pages</h1>
+    
+    <p>
+      Before you download the pages of your Pearson eBook, you need to obtain the URL of the pages.<br>
+      This guide explains how to obtain the URL of Page 0 of (theoretically) any Pearson eBook.<br>
+      This is <b>not a guide on pirating</b> digital books, or accessing books that you don't own - <b>you must own the digital book
+      to follow this process</b>.
+      <ol type="1">
+        <li>Go to <a href="https://www.pearsonplaces.com.au/dash" target="_blank">https://www.pearsonplaces.com.au/dash</a> and log in.</li>
+        <li>Open your target eBook. (Warning: Some ad-blockers or other extensions may prevent the book from opening, so if you have trouble try disabling your browser extensions)</li>
+        <li>Press Ctrl+Shift+C to open the developer tools and inspect the page. Alternatively, press Ctrl+Shift+I, then in the top-left of the developer tools select "Pick an element from the page".</li>
+        <li>Hover over and <b>click on</b> the page in the eBook viewer (this should be the front cover of the book, displayed in the right-hand half of the window)</li>
+        <li>In the developer tools, an &ltimg&gt element with a large URL should be selected.<br>
+        Right-click on this URL and select "Copy link address".</li>
+        <li>Finally, paste the link into the "Page 0 URL" textbox in my downloader tool.</li>
+      </ol>
+    </p>
+    
+  </body>
+</html>
+
+

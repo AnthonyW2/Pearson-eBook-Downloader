@@ -1,0 +1,129 @@
+<!--
+Anthony Wilson - Convert a Pearson eBook to a PDF
+
+Protected by the GNU General Public License V3
+
+2021-2-3
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anthony Wilson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anthony Wilson">
+    <meta name="description" content="Table of Unicode chars">
+    
+    <style>
+      body {
+        /*background-color: #303030;
+        color: #e0e0e0;*/
+      }
+      
+      .smaller {
+        font-size: 0.8rem;
+      }
+      
+      .URLTextBox {
+        width: 80%;
+      }
+      
+      .smallerTextbox {
+        width: 10rem;
+      }
+      
+      .link1 {
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pearson eBook Downloader</h1>
+    
+    <p>
+      This is a simple tool to download the pages of a Pearson eBook as they are stored on the server.<br>
+      They are stored as images (specifically PNGs) with no security checks to validate requests.<br>
+      This tool abuses this simple & insecure method of storing the eBooks, and downloads all the pages 1-by-1.<br><br>
+      <b>Disclaimer:</b> This tool will <i>not</i> automatically convert the pages/images into a PDF. You
+      will need to use an external tool (such as <a href="https://www.libreoffice.org/">LibreOffice</a>, Adobe
+      Acrobat, etc.) to compile all the images into one PDF.<br>
+      Find out how to do that <a href="./how-to-combine.html" target="_blank">here</a>.<br>
+      <b>Warning:</b> The downloaded images are in fact PNGs, though they will not have the .png file extension, so
+      your file manager may not display them as such.<br><br>
+      I highly recommend using this tool in a browser which does not confirm downloads. If your browser creates a
+      confirmation window before downloading a file (like Firefox does by default), this tool may break and fail to download some or all pages.<br><br>
+    </p>
+    
+    <div>First page:</div>
+    <input type="text" id="StartPageTextbox" class="smallerTextbox" placeholder="0" value="0"><br><br>
+    
+    <div>Last page:</div>
+    <input type="text" id="EndPageTextbox" class="smallerTextbox" placeholder="E.g: 729"><br><br>
+    
+    <div>Delay between pages in milliseconds:</div>
+    <input type="text" id="DelayTextbox" class="smallerTextbox" placeholder="200" value="200"><br><br>
+    
+    <div>URL of page 0 (<a href="./how-to-get-URL.html" target="_blank">Find out how to get it</a>):</div>
+    <input type="text" id="PageURLTextbox" class="URLTextBox" placeholder="https://d2f01w1orx96i0.cloudfront.net/resources/products/epubs/generated/00000000-0000-0000-0000-000000000000/foxit-assets/pages/page0"><br><br>
+    
+    <button onclick="DownloadPages()">Download Pages</button><br><br>
+    
+    <h2>Brief Instructions:</h2>
+    <ol type="1">
+      <li>Obtain the URL of page 0 of your testbook  - you can find detailed instructions on how to do that <a href="./how-to-get-URL.html" target="_blank">here</a>.</li>
+      <li>Paste the link of page 0 into the largest textbox, labelled above as "URL of page 0".</li>
+      <li>Specify the first page to download (leave it at 0 if you're downloading all pages)</li>
+      <li>Specify the last page to download.<br>If you want to download the entire book, you can
+      find out how many pages your book contains by inspecting the URL of the final page in the viewer (the same way you got the URL of page 0).<br>
+      Alternatively, you can set this number extremely high, and when the program reaches a page which doesn't
+      exist it will crash. Warning: Depending on your browser, internet speed and delay this second method may cause the
+      final few pages to not be downloaded, as it may open the target URL instead of initiating a download.</li>
+      <li>Specify a delay. If you have fast enough internet, and you're confident with using this tool, leave it at default.
+      You can set it faster if you want (lower number), or slow it down to make the tool more stable (higher number).</li>
+      <li>Finally, press "Download Pages" to start the program. Now just wait for all the pages to be downloaded, and do what you
+      like with them (don't share them with others though - that's illegal, and you are responsible for your own actions)</li>
+      <li>If you want to compile all the pages into one PDF, go <a href="./how-to-combine.html" target="_blank">here</a> to get detailed instructions on how to do that.</li>
+    </ol>
+    
+    <br>
+    <a href="" id="DownloadAnchor" hidden>Download Anchor</a>
+    
+    <script>
+      
+      function DownloadPages(){
+        var PageURLTextbox = document.getElementById("PageURLTextbox");
+        if(PageURLTextbox.value.replace("?","") != PageURLTextbox.value){
+          PageURLTextbox.value = PageURLTextbox.value.substring(0,PageURLTextbox.value.indexOf("?"));
+        }
+        
+        var Page0URL = document.getElementById("PageURLTextbox").value.replace("page0","page").replace("page1","page").replace("page2","page");
+        var LastPage = parseInt(document.getElementById("EndPageTextbox").value);
+        var Delay = parseInt(document.getElementById("DelayTextbox").value) || 200;
+        
+        var downloadAnchor = document.getElementById("DownloadAnchor");
+        
+        var page = parseInt(document.getElementById("StartPageTextbox").value) || 0;
+        
+        recursivePull();
+        
+        function recursivePull(){
+          downloadAnchor.href = Page0URL+page;
+          downloadAnchor.click();
+          
+          if(page < LastPage){
+            page ++;
+            
+            window.setTimeout(recursivePull,Delay);
+          }
+        }
+      }
+      
+    </script>
+  </body>
+</html>
+
+
