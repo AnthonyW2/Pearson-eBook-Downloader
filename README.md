@@ -75,4 +75,4 @@ Note: **The browser version of this tool is now deprecated**, since it wasn't ve
 Brief steps for using the browser-based tool:
 1. Clone this repository to your local computer.
 2. Open the main index.html file in your web browser of choice.
-3. Follow the brief instructions at the bottom of the page on how to use it.
+3. Follow the instructions at the bottom of the page on how to use it.

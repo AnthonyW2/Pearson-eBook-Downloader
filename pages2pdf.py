@@ -2,7 +2,7 @@
 
 # Anthony Wilson - Convert a Pearson eBook to a PDF
 # 
-# Protected by the GNU General Public License V3
+# Protected by the MIT License
 # 
 # 2022-1-27
 
